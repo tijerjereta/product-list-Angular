@@ -6,6 +6,34 @@ app.controller('StoreController', function(){
 	
 });
 
+
+
+app.controller('PanelController', function(){
+
+        this.tab = 1;
+        this.selectTab = function(setTab){
+        	this.tab = setTab;
+        };
+        this.isSelected = function(checkTab){
+       	        return this.tab === checkTab;
+        };
+
+});
+
+
+app.controller('ReviewController', function(){
+
+        this.review = {};
+        this.addReview = function(product){
+		product.reviews.push(this.review);
+
+	        this.review = {};
+        };
+});
+
+
+
+
 var gems = [
 
 	{
@@ -19,6 +47,10 @@ var gems = [
 			full: 'img/empty-product.png',
 			thumb: 'img/empty-product.png'
 		}
+		],
+		reviews: [
+		 { }
+		
 		]
 	},
 	{
@@ -32,7 +64,11 @@ var gems = [
 			full: 'img/empty-product.png',
 			thumb: 'img/empty-product.png'
 		}
+		],
+		reviews: [
+		{}
 		]
+		
 	},
 	{
 		name: 'Product',
@@ -45,20 +81,14 @@ var gems = [
 			full: 'img/empty-product.png',
 			thumb: 'img/empty-product.png'
 		}
+		],
+		reviews: [
+		{}
 		]
+		 
 	}
 
 ];
 
 
-app.controller('PanelController', function(){
-	
-	this.tab = 1;
-	this.selectTab = function(setTab){
-		this.tab = setTab;
-	};
-	this.isSelected = function(checkTab){
-		return this.tab === checkTab;
-	};
-	
-});
+
